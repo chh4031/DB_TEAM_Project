@@ -48,9 +48,11 @@ app.use(express.static(path.join(__dirname,'./src/img')))
 // 경로설정, 라우터
 const gotoMain = require('./src/router/mainRouter');
 const gotoPartner = require('./src/router/partnerRouter');
+const gotoAdmin = require('./src/router/adminRouter');
 
 app.use('/', gotoMain);
 app.use('/partner', gotoPartner);
+app.use('/admin', gotoAdmin);
 
 // catch 404 and forward to error handler, 에러 처리부분(건들지말것)
 app.use(function(req, res, next) {
