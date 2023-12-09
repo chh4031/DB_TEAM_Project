@@ -38,11 +38,12 @@ header {
 
 .middle_bar{
     color: #452D2D;
-    width: 80%;
+    width: 50%;
     text-align: center;
     display: inline;
     position: absolute;
     margin-top: 37px;
+    margin-left: 280px;
 }
 
 .bar{
