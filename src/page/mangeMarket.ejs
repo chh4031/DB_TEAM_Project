@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="admin.css" />
+    <link rel="stylesheet" href="../admin.css" />
+    <title>제휴 매장 관리</title>
+</head>
+<body>
+    <h1>제휴 매장 관리</h1>
+    <hr>
+    <div class="up_bar">
+        <span>제휴 매장 이름 검색</span>
+        <form action="/admin/mangePartner/search" method="POST">
+            <input type="text" name="search"/>
+            <button type="submit">검색</button>
+        </form>
+        <form action="/admin/mangePartner/order" method="POST">
+            <span>정렬 기준</span>
+            <select name="search_order">
+                <option value="이름">제휴매장이름</option>
+                <option value="사업자번호">사업자번호</option>
+            </select>
+            <button type="submit">적용</button>
+        </form>
+    </div>
+    <br>
+    <span class="list_total">목록 총( <%=selectMarket.length %>개)</span>
+    <br>
+    <table>
+        <thaed>
+            <tr>
+                <th>사업자번호</th>
+                <th>제휴매장이름</th>
+                <th>계약활성여부</th>
+                <th>제휴매장요청유무</th>
+                <th>정보상세보기</th>
+                <th>분기정보확인</th>
+            </tr>
+        </thaed>
+        <tbody>
+            <% for(let i = 0; i < selectMarket.length; i++) { %>
+            <tr>
+                <td><%=selectMarket[i].사업자번호 %></td>
+                <td><%=selectMarket[i].제휴매장이름 %></td>
+                <td><%=selectMarket[i].제휴매장계약활성 %></td>
+                <td><%=selectMarket[i].제휴매장요청유무 %></td>
+                <td><button onclick="location.href='/admin/mangePartner/infoDetail'">상세보기</button></td>
+                <td><button onclick="location.href='/admin/mangePartner/infoDate'">상세보기</button></td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>
