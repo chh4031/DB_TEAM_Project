@@ -1,0 +1,216 @@
+* { 
+    padding: 0; 
+    margin: 0; 
+}
+
+html, body{
+    height: 100%;
+    overflow-y: hidden;
+}
+
+header {
+    border-bottom: 1px solid #7F7F7F;
+    font-family: 휴먼둥근헤드라인;
+}
+
+.image1 {
+    margin-left: 100px;
+}
+
+.logo_frist {
+    color: #452D2D;
+    font-size: 30px;
+    font-weight: 500%;
+    position: absolute;
+    margin-top: 25px;
+}
+
+.logo_second {
+    color: #452D2D;
+    position: absolute;
+    font-size: 17px;
+    font-weight: 500%;
+    margin-top: 37px;
+    margin-left: 50px;
+}
+
+.right_bar{
+    margin-top: 36px;
+    float: right;
+    margin-right: 50px;
+    font-family: 맑은 고딕;
+    font-size: 12px;
+}
+
+.fullbox{
+    display: flex;
+    height: 100%;
+}
+
+@media (max-height:797px) {
+    .fullbox{
+        display: flex;
+        height: 90%;
+    }
+}
+
+/* 사이드바 부분 */
+.sidebar{
+    display: inline;
+    flex-basis: 240px;
+    flex-shrink: 0;
+    background-color: #452D2D;
+    float: left;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* 작업 영역 부분 */
+.content{
+    display: inline;
+    flex: 2;
+    background-color: #ffffff;
+    overflow: auto;
+}
+
+/* 하위 메뉴 버튼 기본 */
+.minibutton{
+    margin: 0px 0px 0px 0px;
+    width: 239px;
+    height: 45px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #452D2D;
+    color: #ffffff;
+    border: none;
+    text-align: left;
+    padding-left: 55px;
+}
+
+/* 하위 메뉴 버튼 호버시 */
+.minibutton:hover{
+    margin: 0px 0px 0px 0px;
+    width: 239px;
+    height: 45px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #342222;
+    color: #ffffff;
+    border: none;
+    text-align: left;
+    padding-left: 55px;
+}
+
+/* 하위 메뉴 버튼 누르고 있을시 */
+.minibuttonC{
+    margin: 0px 0px 0px 0px;
+    width: 239px;
+    height: 45px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #342222;
+    color: #ffffff;
+    border: none;
+    text-align: left;
+    padding-left: 55px;
+}
+
+/* 메뉴버튼 기본 */
+.menubutton{
+    margin: 0px 0px 0px 0px;
+    width: 239px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #452D2D;
+    color: #ffffff;
+    border: none;
+    text-align: left;
+    padding-left: 30px;
+}
+
+/* content 요소 */
+.content{
+    padding: 50px;
+}
+
+.content h1{
+    margin-bottom: 20px;
+}
+
+/* content를 통해 나오는 새 ejs 부분 css */
+.up_bar {
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.up_bar span{
+    float: left;
+    margin-right: 10px;
+}
+
+.up_bar form {
+    float: left;
+    margin-right: 10px;
+}
+
+.up_bar input {
+    height: 25px;
+    border-radius: 7px;
+    border: 1px solid black;
+} 
+
+.up_bar select {
+    height: 27px;
+    border-radius: 7px;
+}
+
+.up_bar button{
+    background-color: #452D2D;
+    color: #ffffff;
+    height: 30px;
+    border-radius: 7px;
+    width: 50px;
+}
+
+.up_bar span{
+    padding-top: 5px;
+}
+
+.list_total {
+    float: right;
+    font-size: 13px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th{
+    border-bottom: 2px solid #342222;
+    width: 10%;
+    text-align: center;
+    padding: 15px;
+    color: #342222;
+}
+
+table td{
+    border-bottom: 1px solid #A29595;
+    width: 10%;
+    text-align: center;
+    padding: 15px;
+}
+
+table button {
+    width: 100px;
+    height: 25px;
+    background-color: #ffffff;
+    border: 1px solid #A29595;
+    border-radius: 5px;
+}
+
+.detail_bar {
+    margin-top: 10px;
+    font-size: 20px;
+}

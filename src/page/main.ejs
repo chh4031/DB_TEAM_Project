@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="../main.css" />
+  <title>메인페이지</title>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+        <img src="logo.png" alt="logo" class="image1">
+        <span class="logo_frist" onclick="location.href='/'">PS</span>
+        <span class="logo_second" onclick="location.href='/'">COFFEE SHOP</span>
+      <div class="middle_bar">
+        <span class="bar">회사소개</span>
+        <span class="bar" onclick="location.href='/menu'">메뉴</span>
+        <span class="bar">매장</span>
+        <span class="bar" onclick="location.href=''">게시판</span>
+        <span class="bar" onclick="location.href='/partner'">제휴매장</span>
+      </div>
+      <div class="right_bar">
+        <% if(loginId == undefined) { %>
+          <span class="barR" onclick="location.href='/logi'">로그인</span>
+          <span>|</span>
+          <span class="barR" onclick="location.href='/signup'">회원가입</span>
+        <% } else if(loginId != "admin") { %>
+            <span class="barR" onclick="location.href='/logout'">로그아웃</span>
+          <% }else{  %>
+            <span class="barR" onclick="location.href='/logout'">로그아웃</span>
+            <span>|</span>
+            <span class="barR" onclick="location.href='/admin'">관리자 화면</span>
+        <% } %>
+      </div>
+    </header>
+
+    <div class="banner">
+      <img src="main_img1.png" alt="logo" class="image2">
+      <img src="main_img2.png" alt="logo" class="image2">
+    </div>
+
+    <div class="newbox">
+      <p>박스</p>
+    </div>
+
+    <span class="goto" onclick="location.href='/partnersignup'">제휴매장 요청하러 가기</span>
+
+  </div>
+    <div class="bottom">
+      <footer>
+        <span class="logo_frist_bottom">PS</span>
+        <span class="logo_second_bottom">COFFEE SHOP</span>
+        <div class="bottom_middle">
+          <span>법인명 : 주식회사 데이터베이스설계101  |  대표 : 조대수  |  주소 : 부산광역시 사상구 주례로 47 </span><br>
+          <span>법인 사업자등록번호 : 2019-15-98 |  대표전화 : 1577-1577  |  이메일 : 20191598@g.dongseo.ac.kr </span><br><br>
+          <span class="bottom_middle_content">COPYRIGHT ⓒ 2023 PS coffee Shop CHH All rights reserved.</span>
+        </div>
+        <span class="bottom_right">개인정보처리방침 | 이용약관</span>
+      </footer>
+    </div>
+</body>
+</html>

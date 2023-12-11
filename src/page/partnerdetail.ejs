@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="../main.css" />
+    <link rel="stylesheet" href="../partnerdetail.css" />
+    <title>제휴매장 상세페이지</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <img src="../logo.png" alt="logo" class="image1">
+            <span class="logo_frist">PS</span>
+            <span class="logo_second">COFFEE SHOP</span>
+          <div class="middle_bar">
+            <span class="bar">회사소개</span>
+            <span class="bar" onclick="location.href=''">메뉴</span>
+            <span class="bar">매장</span>
+            <span class="bar" onclick="location.href=''">게시판</span>
+            <span class="bar" onclick="location.href='/partner'">제휴매장</span>
+          </div>
+          <div class="right_bar">
+            <span class="barR" onclick="location.href='/admin'">관리자 화면</span>
+            <span>|</span>
+            <span class="barR">로그인</span>
+            <span>|</span>
+            <span class="barR" onclick="location.href='/signup'">회원가입</span>
+        </header>
+        <div class="detail">
+            <h1><%= data.제휴매장이름 %></h1>
+            <hr color="darkred" size="5" ndoshade style="margin-bottom: 2rem;">
+            <div class="info">
+                <div class="partnerimage">
+                    <h1><< 가게 이미지 >></h1>
+                    <img src="../main_img1.png" alt="logo" class="image2">
+                </div>
+                <div class="detail-info">
+                    <p><strong>주소</strong> <%= data.제휴매장주소 %></p>
+                    <p><strong>담당자</strong> <%= data.제휴매장담장자 %></p>
+                    <p><strong>전화번호</strong> <%= data.제휴매장전화번호 %></p>
+                    <p><strong>평점</strong> <%= data.제휴매장평점 %>(<%= data.제휴매장리뷰갯수 %>)<br>
+                    <button>제휴매장리뷰보러가기</button></p>
+                </div>
+                <div class="menuimage">
+                    <h1><< 대표메뉴 >></h1>
+                    <div class="menu">
+                        <img src="../main_img1.png" alt="logo" class="image2"><p>삽겹살(1인분) : 6,000원</p>
+                    </div>
+                    <div class="menu">
+                        <img src="../main_img1.png" alt="logo" class="image2"><p>메뉴(1인분) : 10,000원</p>
+                    </div>
+                </div>                      
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <footer>
+            <span class="logo_frist_bottom">PS</span>
+            <span class="logo_second_bottom">COFFEE SHOP</span>
+            <div class="bottom_middle">
+                <span>법인명 : 주식회사 데이터베이스설계101  |  대표 : 조대수  |  주소 : 부산광역시 사상구 주례로 47 </span><br>
+                <span>법인 사업자등록번호 : 2019-15-98 |  대표전화 : 1577-1577  |  이메일 : 20191598@g.dongseo.ac.kr </span><br><br>
+                <span class="bottom_middle_content">COPYRIGHT ⓒ 2023 PS coffee Shop CHH All rights reserved.</span>
+            </div>
+            <span class="bottom_right">개인정보처리방침 | 이용약관</span>
+        </footer>
+    </div>
+</body>
+</html>
