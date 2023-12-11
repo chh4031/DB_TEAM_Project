@@ -59,6 +59,7 @@ header {
 }
 
 .bottom{
+    bottom: auto;
     height: 8rem;
     background-color: #1A1A2C;
 }
@@ -132,3 +133,67 @@ header {
     margin-left: 45%;
     background-color: gray;
 }
+
+/* 로그인 탭 부분 */
+.loginBoxAll {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.loginBox {
+    width: 350px;
+    text-align: center;
+    border: 2px solid #452D2D;
+    background-color: #ffffff;
+}
+
+.loginTitle {
+    background-color:#452D2D;
+    color:#ffffff;
+    padding: 7px;
+    font-size: 20px;
+    font-weight: 100%;
+}
+
+.inputBox {
+    margin: 10px;
+}
+
+.inputBox input{
+    width: 200px;
+    height: 20px;
+    margin: 0 5px 20px 0;
+    padding: 2px 5px;
+}
+
+.inputBox span {
+    display: inline-block;
+    margin-right: 10px;
+    text-align: right;
+    width: 100px;
+}
+
+.inputBox button {
+    padding: 3px 5px;
+    background-color: #452D2D;
+    color: #ffffff;
+    border: none;
+    height: 40px;
+    width: 70px;
+    font-size: 15px;
+    border-radius: 8px;
+}
+
+.inputBox button:hover {
+    padding: 3px 5px;
+    background-color: #342222;
+    color: #ffffff;
+    border: none;
+    height: 40px;
+    width: 70px;
+}
+/* 여기까지 */
