@@ -12,8 +12,8 @@ let app = express();
 const options = {
   host : "localhost",
   user : 'root',
-  password : '0000',
-  port : 15628,
+  password : '1234',
+  port : "3306",
   database : 'mydb',
   clearExpired: true, // 유효기간 지나 세션 삭제
   checkExpirationInterval: 60000, // 세션 유효시간 체크 1분
@@ -58,6 +58,22 @@ app.use('/admin', express.static('./src/style'))
 const gotoMain = require('./src/router/mainRouter');
 const gotoPartner = require('./src/router/partnerRouter');
 const gotoAdmin = require('./src/router/adminRouter');
+const gotoSignup = require('./src/router/signupRouter');
+const gotoPartnersignup = require('./src/router/partnersignupRouter');
+const gotoPartnerlist = require('./src/router/partnerlistRouter');
+const gotoPartnerboard = require('./src/router/partnerboardRouter');
+const gotoMenu = require('./src/router/menuRouter');
+const gotoMenu_reg = require('./src/router/menu_regRouter');
+const gotoCart = require('./src/router/cartRouter');
+
+
+const gotoSignup = require('./src/router/signupRouter');
+const gotoPartnersignup = require('./src/router/partnersignupRouter');
+const gotoPartnerlist = require('./src/router/partnerlistRouter');
+const gotoPartnerboard = require('./src/router/partnerboardRouter');
+const gotoMenu = require('./src/router/menuRouter');
+const gotoMenu_reg = require('./src/router/menu_regRouter');
+const gotoCart = require('./src/router/cartRouter');
 
 const gotoSignup = require('./src/router/signupRouter');
 const gotoPartnersignup = require('./src/router/partnersignupRouter');
@@ -70,6 +86,21 @@ const gotoCart = require('./src/router/cartRouter');
 app.use('/', gotoMain);
 app.use('/partner', gotoPartner);
 app.use('/admin', gotoAdmin);
+app.use('/signup', gotoSignup);
+app.use('/partnersignup', gotoPartnersignup);
+app.use('/partnerlist', gotoPartnerlist);
+app.use('/partnerboard', gotoPartnerboard);
+app.use('/menu', gotoMenu);
+app.use('/menu_reg', gotoMenu_reg);
+app.use('/cart', gotoCart);
+
+app.use('/signup', gotoSignup);
+app.use('/partnersignup', gotoPartnersignup);
+app.use('/partnerlist', gotoPartnerlist);
+app.use('/partnerboard', gotoPartnerboard);
+app.use('/menu', gotoMenu);
+app.use('/menu_reg', gotoMenu_reg);
+app.use('/cart', gotoCart);
 
 app.use('/signup', gotoSignup);
 app.use('/partnersignup', gotoPartnersignup);
