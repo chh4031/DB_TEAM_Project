@@ -43,6 +43,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '/src/style')));
 app.use(express.static(path.join(__dirname,'./src/img')))
+
+// img 못 불러오는 문제 경로 지정으로 해결
+app.use('/login', express.static('./src/img'))
+app.use('/admin', express.static('./src/img'))
+app.use('/admin/mangePartner', express.static('./src/img'))
+
+// 경로에 따른 css 맛갈때 가져오는 경로 지정법(정적 경로 일일히 지정해야 하는 작업필요)
+app.use('/admin', express.static('./src/style'))
+
 // 여기까지 건들필요없음
 
 // 경로설정, 라우터
