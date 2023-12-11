@@ -12,8 +12,8 @@ let app = express();
 const options = {
   host : "localhost",
   user : 'root',
-  password : '0000',
-  port : 15628,
+  password : '1234',
+  port : "3306",
   database : 'mydb',
   clearExpired: true, // 유효기간 지나 세션 삭제
   checkExpirationInterval: 60000, // 세션 유효시간 체크 1분
@@ -43,14 +43,40 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '/src/style')));
 app.use(express.static(path.join(__dirname,'./src/img')))
+
+// img 못 불러오는 문제 경로 지정으로 해결
+app.use('/login', express.static('./src/img'))
+app.use('/admin', express.static('./src/img'))
+app.use('/admin/mangePartner', express.static('./src/img'))
+
+// 경로에 따른 css 맛갈때 가져오는 경로 지정법(정적 경로 일일히 지정해야 하는 작업필요)
+app.use('/admin', express.static('./src/style'))
+
 // 여기까지 건들필요없음
 
 // 경로설정, 라우터
 const gotoMain = require('./src/router/mainRouter');
 const gotoPartner = require('./src/router/partnerRouter');
+const gotoAdmin = require('./src/router/adminRouter');
+const gotoSignup = require('./src/router/signupRouter');
+const gotoPartnersignup = require('./src/router/partnersignupRouter');
+const gotoPartnerlist = require('./src/router/partnerlistRouter');
+const gotoPartnerboard = require('./src/router/partnerboardRouter');
+const gotoMenu = require('./src/router/menuRouter');
+const gotoMenu_reg = require('./src/router/menu_regRouter');
+const gotoCart = require('./src/router/cartRouter');
+
 
 app.use('/', gotoMain);
 app.use('/partner', gotoPartner);
+app.use('/admin', gotoAdmin);
+app.use('/signup', gotoSignup);
+app.use('/partnersignup', gotoPartnersignup);
+app.use('/partnerlist', gotoPartnerlist);
+app.use('/partnerboard', gotoPartnerboard);
+app.use('/menu', gotoMenu);
+app.use('/menu_reg', gotoMenu_reg);
+app.use('/cart', gotoCart);
 
 // catch 404 and forward to error handler, 에러 처리부분(건들지말것)
 app.use(function(req, res, next) {

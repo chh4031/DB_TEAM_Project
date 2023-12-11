@@ -1,0 +1,85 @@
+/* 전체 컨테이너 */
+.detail {
+    max-width: 1200px; /* 컨테이너의 최대 너비 지정 (선택 사항) */
+    margin: 0 auto; /* 가운데 정렬을 위해 컨테이너를 가로 중앙에 배치 */
+    padding: 20px; /* 필요에 따라 컨테이너 주위에 간격 추가 */
+}
+
+/* 제목 스타일링 */
+.detail h1 {
+    color: darkred;
+    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+}
+
+.info {
+    text-align: center;
+}
+
+
+.info > div {
+    display: inline-block;
+    /* 추가적인 스타일링 */
+}
+
+/* 각 세부 영역 스타일링 */
+.partnerimage,
+.detail-info,
+.menuimage {
+    width: 30%; /* 각 세부 영역의 기본 너비 */
+}
+.partnerimage {
+    height: 500px;
+}
+
+/* 이미지 스타일링 */
+.partnerimage img {
+    width: 100%; /* 이미지를 부모 요소에 꽉 차게 조정 */
+}
+
+.menuimage img {
+    width: 80%;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+/* 세부 정보 영역 스타일링 */
+.detail-info p {
+    text-align: left;
+    margin-left: 1rem;
+    margin-bottom: 1.3rem;
+    height: 120px;
+}
+
+.detail-info button {
+    margin-top: 0.5rem;
+}
+
+.detail-info strong {
+    color: brown;
+    margin-right: 2rem;
+}
+
+.detail > .menuimage h1 {
+    color: brown;
+    text-align: left;
+}
+
+.detail > .menuimage h1 {
+    color: brown;
+    text-align: left;
+}
+
+/* 대표 메뉴 영역 스타일링 */
+.menuimage p {
+    text-align: right;
+    font-family: "굴림";
+    font-weight: bold;
+    margin: 0; /* 문단의 기본 여백 제거 */
+}
+
+.menuimage > .menu {
+    border: 1px solid #ccc; /* 각 주문을 나누는 테두리 */
+    padding: 10px;
+    margin-bottom: 20px; /* 주문 간격 조절 */
+}
