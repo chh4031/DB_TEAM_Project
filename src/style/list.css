@@ -1,0 +1,70 @@
+
+.list {
+    margin-top: 1rem;
+}
+
+.list form {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.list table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.list th, td {
+    padding: 10px;
+}
+
+.list th {
+    border-top: brown solid;
+    border-bottom: brown solid;
+    color: brown;
+}
+
+.category{
+    list-style: none;
+}
+
+.category li {
+    font-weight: bold;
+    float: left;
+    margin-left: 3rem;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.list p {
+    text-align: right;
+    font-family: "굴림";
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 2rem;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+}
+
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+}

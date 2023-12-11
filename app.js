@@ -59,9 +59,25 @@ const gotoMain = require('./src/router/mainRouter');
 const gotoPartner = require('./src/router/partnerRouter');
 const gotoAdmin = require('./src/router/adminRouter');
 
+const gotoSignup = require('./src/router/signupRouter');
+const gotoPartnersignup = require('./src/router/partnersignupRouter');
+const gotoPartnerlist = require('./src/router/partnerlistRouter');
+const gotoPartnerboard = require('./src/router/partnerboardRouter');
+const gotoMenu = require('./src/router/menuRouter');
+const gotoMenu_reg = require('./src/router/menu_regRouter');
+const gotoCart = require('./src/router/cartRouter');
+
 app.use('/', gotoMain);
 app.use('/partner', gotoPartner);
 app.use('/admin', gotoAdmin);
+
+app.use('/signup', gotoSignup);
+app.use('/partnersignup', gotoPartnersignup);
+app.use('/partnerlist', gotoPartnerlist);
+app.use('/partnerboard', gotoPartnerboard);
+app.use('/menu', gotoMenu);
+app.use('/menu_reg', gotoMenu_reg);
+app.use('/cart', gotoCart);
 
 // catch 404 and forward to error handler, 에러 처리부분(건들지말것)
 app.use(function(req, res, next) {
