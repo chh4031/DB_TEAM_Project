@@ -128,3 +128,89 @@ header {
     text-align: left;
     padding-left: 30px;
 }
+
+/* content 요소 */
+.content{
+    padding: 50px;
+}
+
+.content h1{
+    margin-bottom: 20px;
+}
+
+/* content를 통해 나오는 새 ejs 부분 css */
+.up_bar {
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.up_bar span{
+    float: left;
+    margin-right: 10px;
+}
+
+.up_bar form {
+    float: left;
+    margin-right: 10px;
+}
+
+.up_bar input {
+    height: 25px;
+    border-radius: 7px;
+    border: 1px solid black;
+} 
+
+.up_bar select {
+    height: 27px;
+    border-radius: 7px;
+}
+
+.up_bar button{
+    background-color: #452D2D;
+    color: #ffffff;
+    height: 30px;
+    border-radius: 7px;
+    width: 50px;
+}
+
+.up_bar span{
+    padding-top: 5px;
+}
+
+.list_total {
+    float: right;
+    font-size: 13px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th{
+    border-bottom: 2px solid #342222;
+    width: 10%;
+    text-align: center;
+    padding: 15px;
+    color: #342222;
+}
+
+table td{
+    border-bottom: 1px solid #A29595;
+    width: 10%;
+    text-align: center;
+    padding: 15px;
+}
+
+table button {
+    width: 100px;
+    height: 25px;
+    background-color: #ffffff;
+    border: 1px solid #A29595;
+    border-radius: 5px;
+}
+
+.detail_bar {
+    margin-top: 10px;
+    font-size: 20px;
+}
