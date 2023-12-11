@@ -1,0 +1,40 @@
+.board h1 {
+    color: darkred;
+    margin-left: 2rem;
+    margin-top: 2rem;
+}
+
+.board li {
+    margin-top: 1rem;
+    margin-left: 5rem;
+}
+
+.board input {
+    width: 90%;
+    height: 20px;
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.board textarea {
+    width: 90%;
+    height: 300px;
+    border-radius: 15px;
+    border-width: 2px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.board button {
+    float: right;
+    margin-top: 1rem;
+    margin-right: 7rem;
+    border-radius: 15px;
+    border-color: green;
+    background-color: green;
+    color: white;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
