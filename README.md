@@ -9,6 +9,9 @@
 ## 사용 기술
 ![기술스택](https://github.com/chh4031/CAN_Student_-Management_System/assets/57095947/95f26bd9-f55c-4daf-8db0-0439ed11df2e)
 
+## 이슈 사항
+- 의도치 않은 하드코딩이 되기 시작함
+  - admin 페이지의 상태 관리가 ejs에서 불가함으로 node js에서 처리할려고 하다 보니 발생
 
 ## 기타
 - 브랜치 추가(dev)
