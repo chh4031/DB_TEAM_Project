@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="../main.css" />
+  <link rel="stylesheet" href="../mypage.css" />
+  <title>메인페이지</title>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+        <img src="logo.png" alt="logo" class="image1">
+        <span class="logo_frist" onclick="location.href='/'">PS</span>
+        <span class="logo_second" onclick="location.href='/'">COFFEE SHOP</span>
+      <div class="middle_bar">
+        <span class="bar">회사소개</span>
+        <span class="bar" onclick="location.href='/menu'">메뉴</span>
+        <span class="bar">매장</span>
+        <span class="bar" onclick="location.href='/partnerboardlist'">게시판</span>
+        <span class="bar" onclick="location.href='/partnerlist'">제휴매장</span>
+      </div>
+      <div class="right_bar">
+        <% if(loginId == undefined) { %>
+          <span class="barR" onclick="location.href='/logi'">로그인</span>
+          <span>|</span>
+          <span class="barR" onclick="location.href='/signup'">회원가입</span>
+        <% } else if(loginId != "admin") { %>
+            <span class="barR" onclick="location.href='/logout'">로그아웃</span>
+            <span>|</span>
+            <span class="barR" onclick="location.href='/mypage'">마이페이지</span>
+          <% }else{  %>
+            <span class="barR" onclick="location.href='/logout'">로그아웃</span>
+            <span>|</span>
+            <span class="barR" onclick="location.href='/admin'">관리자 화면</span>
+        <% } %>
+      </div>
+    </header>
+    <div class="midlayer">
+    <h1><%= user.이름 %>의 마이페이지 입니다.</h1>
+    <ul class="page" style="list-style: none;">
+        <li>이름: <%= user.이름 %></li>
+        <li>전화번호: <%= user.전화번호 %></li>
+    </ul>
+    <ul class="page" style="list-style: none;">
+        <li>현재 등급: <%= grade.회원등급_등급명 %></li>
+        <li>누적사용금액: <%= grade.누적사용금액 %></li>
+        <li>누적주문횟수: <%= grade.누적주문횟수 %></li>
+        <li>현재 등급 포인트지급률 : <%= grade.포인트지급률 %>%</li>
+        <% if (grade.회원등급_등급명 == '골드') { %>
+            <li>최고 등급이기 때문에 다음 등급은 없습니다.</li>
+            <% } else { %>
+                <% if (nextgrade.기준주문금액 - grade.누적사용금액 > 0 && nextgrade.기준주문횟수 - grade.누적주문횟수) { %>
+                    <li>다음 등급 까지 누적사용금액 <%= nextgrade.기준주문금액 - grade.누적사용금액 %>남았고,
+                        누적주문횟수 <%= nextgrade.기준주문횟수 - grade.누적주문횟수 %>가 남았으며
+                        다음등급은 <%= nextgrade.등급명 %> 이고, 포인트지급률은 <%= nextgrade.포인트지급률 %>% 입니다.</li>
+                    <% } else if (nextgrade.기준주문금액 - grade.누적사용금액 < 0) { %>
+                        <li>다음 등급 까지 누적사용금액은 도달하였으며,
+                            누적주문횟수 <%= nextgrade.기준주문횟수 - grade.누적주문횟수 %>가 남았으며
+                            다음등급은 <%= nextgrade.등급명 %> 이고, 포인트지급률은 <%= nextgrade.포인트지급률 %>% 입니다.</li>
+                        <% } else { %>
+                            <li>다음 등급 까지 누적사용금액 <%= nextgrade.기준주문금액 - grade.누적사용금액 %>남았고,
+                                누적주문횟수는 도달하였으며,
+                                다음등급은 <%= nextgrade.등급명 %> 이고, 포인트지급률은 <%= nextgrade.포인트지급률 %>% 입니다.</li>
+                            <% } %>
+                <% } %>
+        <li>분기 종료일 : <%= new Date(endate.분기종료일).toLocaleDateString() %>까지</li>
+    </ul>
+    <br>
+    <div class="clickbox">
+    <a href="/mypage/orderlist">주문내역</a>
+    <a href="/mypage/pointlist">포인트 내역</a>
+    <a href="/mypartner">내 제휴매장보기</a>
+  </div>
+</div>
+</div>
+</div>
+<div class="bottom">
+  <footer>
+    <span class="logo_frist_bottom">PS</span>
+    <span class="logo_second_bottom">COFFEE SHOP</span>
+    <div class="bottom_middle">
+      <span>법인명 : 주식회사 데이터베이스설계101  |  대표 : 조대수  |  주소 : 부산광역시 사상구 주례로 47 </span><br>
+      <span>법인 사업자등록번호 : 2019-15-98 |  대표전화 : 1577-1577  |  이메일 : 20191598@g.dongseo.ac.kr </span><br><br>
+      <span class="bottom_middle_content">COPYRIGHT ⓒ 2023 PS coffee Shop CHH All rights reserved.</span>
+    </div>
+    <span class="bottom_right">개인정보처리방침 | 이용약관</span>
+  </footer>
+</div>
+</body>
+</html>

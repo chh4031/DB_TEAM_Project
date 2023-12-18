@@ -9,7 +9,7 @@
 <body>
   <div class="wrapper">
     <header>
-        <img src="logo.png" alt="logo" class="image1">
+        <img src="../logo.png" alt="logo" class="image1">
         <span class="logo_frist" onclick="location.href='/'">PS</span>
         <span class="logo_second" onclick="location.href='/'">COFFEE SHOP</span>
       <div class="middle_bar">
@@ -17,7 +17,7 @@
         <span class="bar" onclick="location.href='/menu'">메뉴</span>
         <span class="bar">매장</span>
         <span class="bar" onclick="location.href='/partnerboardlist'">게시판</span>
-        <span class="bar" onclick="location.href='/partnerlist'">제휴매장</span>
+        <span class="bar" onclick="location.href='/partner'">제휴매장</span>
       </div>
       <div class="right_bar">
         <% if(loginId == undefined) { %>
@@ -26,8 +26,6 @@
           <span class="barR" onclick="location.href='/signup'">회원가입</span>
         <% } else if(loginId != "admin") { %>
             <span class="barR" onclick="location.href='/logout'">로그아웃</span>
-            <span>|</span>
-            <span class="barR" onclick="location.href='/mypage'">마이페이지</span>
           <% }else{  %>
             <span class="barR" onclick="location.href='/logout'">로그아웃</span>
             <span>|</span>
@@ -35,30 +33,35 @@
         <% } %>
       </div>
     </header>
-
-    <div class="banner">
-      <img src="main_img1.png" alt="logo" class="image2">
-      <img src="main_img2.png" alt="logo" class="image2">
+    <a href="/partnerboardlist">게시판 돌아가기</a>
+    <h1><%= data.제목 %></h1>
+    <p><%= data.회원_아이디 %></p>
+    <p><%= new Date(data.작성일자).toLocaleDateString() %></p>
+    <p><%= data.내용 %></p>
+    <form action='/partnerboardlist/<%= data.글번호 %>?type=recommend' method="post">
+        <button type="submit">추천하기 <%= data.추천수 %></button> 
+    </form>
+    <p>댓글(<%= data2.length %>)</p> 
+    <form action='/partnerboardlist/<%= data.글번호 %>?type=comment' method="post">
+      <input type="text" placeholder="댓글작성하기" name="comment">
+        <button type="submit">댓글 작성</button>
+    </form>
+    <% for (let i = 0; i < data2.length; i++) {%>
+      <p>작성자 : <%= data2[i].회원_아이디 %></p>
+      <p><%= data2[i].내용 %></p>
+    <% } %>
     </div>
-
-    <!-- <div class="newbox">
-      <p>박스</p>
-    </div> -->
-
-    <span class="goto" onclick="location.href='/partnersignup'"><span>제휴매장 요청하러 가기</span></span>
-
-  </div>
     <div class="bottom">
-      <footer>
+    <footer>
         <span class="logo_frist_bottom">PS</span>
         <span class="logo_second_bottom">COFFEE SHOP</span>
         <div class="bottom_middle">
-          <span>법인명 : 주식회사 데이터베이스설계101  |  대표 : 조대수  |  주소 : 부산광역시 사상구 주례로 47 </span><br>
-          <span>법인 사업자등록번호 : 2019-15-98 |  대표전화 : 1577-1577  |  이메일 : 20191598@g.dongseo.ac.kr </span><br><br>
-          <span class="bottom_middle_content">COPYRIGHT ⓒ 2023 PS coffee Shop CHH All rights reserved.</span>
+        <span>법인명 : 주식회사 데이터베이스설계101  |  대표 : 조대수  |  주소 : 부산광역시 사상구 주례로 47 </span><br>
+        <span>법인 사업자등록번호 : 2019-15-98 |  대표전화 : 1577-1577  |  이메일 : 20191598@g.dongseo.ac.kr </span><br><br>
+        <span class="bottom_middle_content">COPYRIGHT ⓒ 2023 PS coffee Shop CHH All rights reserved.</span>
         </div>
         <span class="bottom_right">개인정보처리방침 | 이용약관</span>
-      </footer>
+    </footer>
     </div>
 </body>
 </html>

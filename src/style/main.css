@@ -132,6 +132,16 @@ header {
     margin-top: -20%;
     margin-left: 45%;
     background-color: gray;
+    border-radius: 20px;
+    text-align: center;
+    background-color: #452D2D;
+}
+
+.goto span{
+    display: inline-block;
+    padding-top: 15px;
+    font-size: 25px;
+    color: #ffffff;
 }
 
 /* 로그인 탭 부분 */

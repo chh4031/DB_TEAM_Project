@@ -1,20 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <link rel="stylesheet" href="admin.css" />
     <link rel="stylesheet" href="../admin.css" />
     <title>제휴 매장 정보 상세</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>제휴 매장 정보 상세</h1>
-    <hr>
+    <hr />
     <div class="detail_bar">
-        <span>제휴매장이름 : </span>
+      <span
+        >제휴매장이름 : <%=marketInfo.제휴매장이름 %><% if(marketInfo.연속1등급횟수 >= 4) { %>
+        <span class="state_barOn">특별승급대상자</span>
+        <% } else { %>
+        <span class="state_barOff">특별승급불가</span>
+        <% } %>
+      </span>
     </div>
-    <br>
-    <br>
-    <br>
-    <span>기본 정보</span>
-</body>
+    <br />
+    <br />
+    <br />
+    <div class="Market_info">
+      <span class="normal_info">기본 정보</span>
+      <hr class="hr_line" />
+      <form action="/admin/mangePartner/updateInfo" method="POST">
+        <table>
+          <tbody class="infoMarketTable">
+            <tr>
+              <td>
+                사업자번호<br /><input
+                  type="text"
+                  value=" <%=marketInfo.사업자번호 %>"
+                  disabled
+                />
+                <input type="hidden" name="marketNumber" value=" <%=marketInfo.사업자번호 %>"/>
+              </td>
+              <td>
+                제휴매장분류<br /><input
+                  type="text"
+                  value=" <%=marketInfo.제휴매장분류 %>"
+                  disabled
+                />
+              </td>
+              <td>
+                제휴매장평점<br /><input
+                  type="text"
+                  value=" <%=marketInfo.제휴매장평점 %>"
+                  disabled
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                제휴매장이름<br /><input
+                  type="text"
+                  value=" <%=marketInfo.제휴매장이름 %>"
+                  disabled
+                />
+              </td>
+              <td>
+                제휴매장계약활성 <% if(marketInfo.제휴매장계약활성 == "True") {
+                %>
+                <span class="state_barOn">계약중</span>
+                <% } else { %>
+                <span class="state_barOff">계약아님</span>
+                <% } %>
+                <br /><input
+                  class="e_input"
+                  type="text"
+                  value=" <%=marketInfo.제휴매장계약활성 %>"
+                  disabled
+                /><button
+                  class="e_button"
+                  onclick="location.href='/admin/mangePartner/On?marketNum=<%=marketInfo.사업자번호 %>'"
+                >
+                  활성</button
+                ><button
+                  class="e_button"
+                  onclick="location.href='/admin/mangePartner/Off?marketNum=<%=marketInfo.사업자번호 %>'"
+                >
+                  비활성
+                </button>
+              </td>
+              <td>
+                총계약일수<br /><input
+                  type="text"
+                  value=" <%=marketInfo.총계약일수 %>"
+                  disabled
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                제휴매장주소<br /><input
+                  type="text"
+                  value=" <%=marketInfo.제휴매장주소 %>"
+                  disabled
+                />
+              </td>
+              <td>
+                제휴매장재계약여부<br /><input
+                  type="text"
+                  value=" <%=marketInfo.제휴매장재계약유무 %>"
+                  disabled
+                />
+              </td>
+              <td>
+                현재연속1등급횟수<br /><input
+                  type="text"
+                  value=" <%=marketInfo.연속1등급횟수 %>"
+                  disabled
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                제휴매장담당자<br /><input
+                  type="text"
+                  value=" <%=marketInfo.제휴매장담당자 %>"
+                  disabled
+                />
+              </td>
+              <td>
+                제휴매장리뷰갯수<br /><input
+                  type="text"
+                  value=" <%=marketInfo.제휴매장리뷰갯수 %>"
+                  disabled
+                />
+              </td>
+              <td>
+                계약해지사유<br /><input
+                  type="text"
+                  name="deteleWhy"
+                  value="<%=marketInfo.계약해지사유 %>"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                제휴매장전화번호<br /><input
+                  type="text"
+                  value=" <%=marketInfo.제휴매장전화번호 %>"
+                  disabled
+                />
+              </td>
+              <td>
+                제휴매장요청유무<br /><input
+                  type="text"
+                  value=" <%=marketInfo.제휴매장요청유무 %>"
+                  disabled
+                />
+              </td>
+              <td>
+                신규제휴매장여부<br /><input
+                  type="text"
+                  value=" <%=newMarket %>"
+                  disabled
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <hr class="hr_line" />
+        <button class="brown_button">저장</button>
+      </form>
+    </div>
+  </body>
 </html>

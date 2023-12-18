@@ -12,6 +12,9 @@ const signupView2 = async(req, res) => {
     const username = req.body.username;
     const usertel = req.body.usertel;
     const usercategory = "회원";
+    const userpoint = 0;
+    const usersleep = "False"
+    const usercurrentpoint = 0;
 
         // 비밀번호 확인
         if (userpw1 !== userpw2) {
@@ -33,8 +36,8 @@ const signupView2 = async(req, res) => {
             res.send(`<script>alert("${alertidMessage}"); window.location.href="/";</script>`);
         } else {
             // 가입되지 않은 아이디인 경우 회원가입 진행
-            const insertUserQuery = 'INSERT INTO 회원 (아이디, 비밀번호, 이름, 전화번호, 가입날짜, 회원구분) VALUES (?, ?, ?, ?, ?, ?)';
-            await useDB.query(insertUserQuery, [userid, userpw1, username, usertel, signupdate, usercategory]);
+            const insertUserQuery = 'INSERT INTO 회원 (아이디, 비밀번호, 이름, 전화번호, 가입날짜, 회원구분, 포인트, 휴먼계정여부, 이번분기포인트) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+            await useDB.query(insertUserQuery, [userid, userpw1, username, usertel, signupdate, usercategory, userpoint, usersleep, usercurrentpoint]);
             res.redirect('/');
         }
 };

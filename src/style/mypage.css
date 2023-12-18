@@ -1,0 +1,42 @@
+@font-face {
+    font-family: 'JalnanGothic';
+    src: url(JalnanGothicTTF.ttf) ;
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Jalnan2';
+    src: url(Jalnan2TTF.ttf) ;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.page {
+    font-family: 'JalnanGothic';
+}
+
+.page li {
+    margin-top: 1rem;
+    font-family: 'Jalnan2';
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding : 10px;
+}
+
+.clickbox{
+    text-align: right;
+}
+
+.clickbox a {
+    text-decoration-line: none;
+    border-radius: 10px;
+    border-color: green;
+    background-color: green;
+    color: white;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'JalnanGothic';
+}

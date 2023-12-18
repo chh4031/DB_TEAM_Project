@@ -45,8 +45,8 @@
                 <td><%=selectMarket[i].제휴매장이름 %></td>
                 <td><%=selectMarket[i].제휴매장계약활성 %></td>
                 <td><%=selectMarket[i].제휴매장요청유무 %></td>
-                <td><button onclick="location.href='/admin/mangePartner/infoDetail'">상세보기</button></td>
-                <td><button onclick="location.href='/admin/mangePartner/infoDate'">상세보기</button></td>
+                <td><button onclick="location.href='/admin/mangePartner/infoDetail?marketNum=<%=selectMarket[i].사업자번호%>'">상세보기</button></td>
+                <td><button onclick="location.href='/admin/mangePartner/infoDate?marketNum=<%=selectMarket[i].사업자번호%>'">상세보기</button></td>
             </tr>
             <% } %>
         </tbody>

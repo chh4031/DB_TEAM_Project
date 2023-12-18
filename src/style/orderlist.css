@@ -1,0 +1,30 @@
+.orderboard{
+    border-radius: 10px;
+    border-style: solid;
+    border-color : black;
+    margin-bottom : 20px;
+    width : 550px;
+    height : 143px;
+    font-family: 'JalnanGothic';
+    margin-left : 450px;
+    margin-top : 10px;
+}
+.orderlist{
+    display : flex;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+.orderlistitem{
+    margin-left : 10px;
+    margin-right : 90px
+}
+ul{
+    list-style: none;
+}
+    @font-face {
+        font-family: 'JalnanGothic';
+        src: url(JalnanGothicTTF.ttf) ;
+        font-weight: normal;
+        font-style: normal;
+        color: #000000;
+    }

@@ -12,26 +12,31 @@
     <div class="wrapper">
         <header>
             <img src="logo.png" alt="logo" class="image1">
-            <span class="logo_frist">PS</span>
-            <span class="logo_second">COFFEE SHOP</span>
+            <span class="logo_frist" onclick="location.href='/'">PS</span>
+            <span class="logo_second" onclick="location.href='/'">COFFEE SHOP</span>
             <div class="middle_bar">
                 <span class="bar">회사소개</span>
-                <span class="bar" onclick="location.href=''">메뉴</span>
+                <span class="bar" onclick="location.href='/menu'">메뉴</span>
                 <span class="bar">매장</span>
-                <span class="bar" onclick="location.href=''">게시판</span>
-                <span class="bar" onclick="location.href='/partner'">제휴매장</span>
+                <span class="bar" onclick="location.href='/partnerboardlist'">게시판</span>
+                <span class="bar" onclick="location.href='/partnerlist'">제휴매장</span>
             </div>
             <div class="right_bar">
                 <span class="barR" onclick="location.href='/admin'">관리자 화면</span>
                 <span>|</span>
-                <span class="barR">로그인</span>
+                <span class="barR" onclick="location.href='/logi'">로그인</span>
                 <span>|</span>
                 <span class="barR" onclick="location.href='/signup'">회원가입</span>
             </div>
         </header>
-        <h1>메뉴</h1>
-        <a href="/menu_reg">메뉴 등록하기</a>
-        <a href="/cart">장바구니</a>
+        <div class="menuBox">
+            <h1>메뉴</h1>
+            <% if(loginId == "admin") { %>
+            <a href="/menu_reg">메뉴등록하기</a>
+            <% } %>
+            <a href="/cart">장바구니</a>
+        </div>
+        <div class="midlayer">
         <ul class="category">
             <li onclick="filterList('all')">전체</li>
             <li onclick="filterList('한식')">한식</li>
@@ -73,7 +78,7 @@
                     <% for (let i = 0; i < data.length; i++) { %>
                         <td>
                             <form action="/menu" method="post">
-                                <input type="hidden" name="menu_no" value="<%= data[i].메뉴항목번호 %>">
+                                <input type="hidden" name="menuno" value="<%= data[i].메뉴항목번호 %>">
                                 <input type="submit" value="장바구니 담기">
                             </form>
                         </td>
@@ -82,6 +87,7 @@
             </tbody>
         </table>
     </div>
+</div>
     <div class="bottom">
         <footer>
             <span class="logo_frist_bottom">PS</span>

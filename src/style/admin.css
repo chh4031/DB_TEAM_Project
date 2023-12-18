@@ -210,7 +210,125 @@ table button {
     border-radius: 5px;
 }
 
+/* 제휴 매장 정보 상세 부분 */
 .detail_bar {
     margin-top: 10px;
     font-size: 20px;
+}
+
+.Market_info {
+    color: #342222;
+    font-weight: bold;
+}
+
+.normal_info {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.hr_line {
+    border: 2px solid #342222;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.infoMarketTable td{
+    text-align: left;
+    border: none;
+    padding: 5px;
+    padding-left: 50px;
+}
+
+.infoMarketTable td input:not(.e_input){
+    margin-top: 5px;
+    width: 300px;
+    height: 30px;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.e_input{
+    margin-top: 5px;
+    width: 180px;
+    height: 30px;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.e_button{
+    margin-left: 10px;
+    width: 50px;
+    height: 30px;
+    color: #ffffff;
+    background-color: #452D2D;
+}
+
+.brown_button {
+    background-color: #452D2D;
+    color: #ffffff;
+    height: 30px;
+    border-radius: 7px;
+    width: 50px;
+}
+
+.state_barOn{
+    display: inline-block;
+    font-size: 12px;
+    background-color: #0D6EFD;
+    width: 100px;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 10px;
+    height: 18px;
+    padding-top: 1px;
+}
+
+.state_barOff{
+    display: inline-block;
+    font-size: 12px;
+    background-color: #DC3545;
+    width: 100px;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 10px;
+    height: 18px;
+    padding-top: 1px;
+}
+
+/* 제휴 매장 분기 정보 부분 */
+.DateDetail{
+    font-size: 14px;
+}
+
+.Market_infoo{
+    margin-top: 10px;
+    font-weight: bold;
+    color: #342222;
+}
+
+.message {
+    width: 100%;
+    height: 100px;
+}
+
+.Market_infoo a{
+    font-size: 11px;
+    color: #7F7F7F;
+    float: right;
+    margin-bottom: 10px;
+}
+
+/* 제휴 매장 메시지 기록 부분 */
+.td1 {
+    width: 10%;
+}
+
+.td2{
+    width: 90%;
+}
+
+/* 메뉴 통계 조회 부분 */
+.DateDetail input {
+    width: 130px;
+    text-align: center;
 }

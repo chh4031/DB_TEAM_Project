@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="admin.css" />
+    <link rel="stylesheet" href="../admin.css" />
+    <title>제휴 매장 메시지 기록</title>
+</head>
+<body>
+    <h1>제휴 매장 메시지 기록</h1>
+    <hr />
+    <div class="detail_bar">
+        <span>제휴매장이름 : <%=marketInfo[0].제휴매장이름 %></span>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="Market_info">
+      <span class="normal_info">메시지 기록</span>
+    </div>
+    <table class="DateDetail">
+        <thaed>
+            <tr>
+                <th>작성일</th>
+                <th>내용</th>
+            </tr>
+        </thaed>
+        <tbody>
+            <% for(let i = 0; i < selectMessage.length; i++) { %>
+            <tr>
+                <td class="td1"><%=DateChange[i] %></td>
+                <td class="td2"><%=selectMessage[i].메시지내용 %></td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="admin.css" />
+    <link rel="stylesheet" href="../admin.css" />
+    <title>회원 등급 수정</title>
+</head>
+<body>
+    <h1>회원 등급 수정</h1>
+    <hr />
+    <br />
+    <br />
+    <div class="Market_info">
+      <span class="normal_info">현재 등급</span>
+    </div>
+    <form action="/admin/usergrade/update" method="POST">
+    <table class="DateDetail">
+        <thaed>
+            <tr>
+                <th>등급명</th>
+                <th>기준주문횟수</th>
+                <th>기준주문금액</th>
+                <th>포인트지급률</th>
+                <th>수정유무</th>
+            </tr>
+        </thaed>
+        <tbody>
+            <% for(let i = 0; i < usergrade.length; i++) { %>
+            <tr>
+                <td>
+                    <input type="text" name="gradeName1" value="<%=usergrade[i].등급명 %>" disabled/>
+                    <input type="text" name="gradeName" value="<%=usergrade[i].등급명 %>" hidden/>
+                </td>
+                <td><input type="text" name="orderCount" value="<%=usergrade[i].기준주문횟수 %>"/></td>
+                <td><input type="text" name="orderMoney" value="<%=usergrade[i].기준주문금액 %>"/></td>
+                <td><input type="text" name="percent" value="<%=usergrade[i].포인트지급률 %>"/></td>
+                <td>
+                    <button style="margin-top: 0px;" name="btn" value="<%=i%>" class="brown_button">수정</button>
+                    <button style="margin-top: 0px;" name="del" value="<%=i%>" class="brown_button">삭제</button>
+                </td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <span>등급명 작성 : </span>
+        <input type="text" name="gradeInsert"/>
+        <button style="margin-top: 15px;" name="btn" value="0" class="brown_button">추가</button>
+    </form>
+  </body>
+</html>

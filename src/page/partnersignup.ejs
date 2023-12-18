@@ -12,14 +12,14 @@
     <div class="wrapper">
     <header>
         <img src="logo.png" alt="logo" class="image1">
-        <span class="logo_frist">PS</span>
-        <span class="logo_second">COFFEE SHOP</span>
+        <span class="logo_frist" onclick="location.href='/'">PS</span>
+        <span class="logo_second" onclick="location.href='/'">COFFEE SHOP</span>
         <div class="middle_bar">
             <span class="bar">회사소개</span>
-            <span class="bar" onclick="location.href=''">메뉴</span>
+            <span class="bar" onclick="location.href='/menu'">메뉴</span>
             <span class="bar">매장</span>
-            <span class="bar" onclick="location.href=''">게시판</span>
-            <span class="bar" onclick="location.href='/partner'">제휴매장</span>
+            <span class="bar" onclick="location.href='/partnerboardlist'">게시판</span>
+            <span class="bar" onclick="location.href='/partnerlist'">제휴매장</span>
         </div>
         <div class="right_bar">
             <span class="barR" onclick="location.href='/admin'">관리자 화면</span>
@@ -46,7 +46,7 @@
                         <option value="기타">기타</option>
                     </select>
                 </li>
-                <li><input type="text" placeholder="담당자 이름" name="partnerowner"></li>
+                <li><input type="text" placeholder="담당자 이름" name="partnerowner" value="<%=loginId%>"></li>
                 <li><input type="tel" placeholder="담당자 연락처" name="ownertel"></li>
                 <li><input type="text" placeholder="주소 입력" name="partneraddress"></li>
                 <button type="submit">제휴매장 요청</button>

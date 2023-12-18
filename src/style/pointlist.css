@@ -1,0 +1,66 @@
+
+@font-face {
+    font-family: 'JalnanGothic';
+    src: url(JalnanGothicTTF.ttf) ;
+    font-weight: normal;
+    font-style: normal;
+    color: #000000;
+}
+
+
+.pointInfo{
+    margin-left: 440px;
+    margin-top:50px;
+    font-family: 'JalnanGothic';
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 550px;
+    margin: 1rem auto;
+    border: 1px solid #ddd;
+    background-color: white;
+    font-family: 'JalnanGothic';
+  }
+  
+  /* 테이블 행 */
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #452D2D;;
+    color: white;
+  }
+  
+  /* 테이블 올렸을 때 */
+  tbody tr:hover {
+    background-color: #d3d3d3;
+    opacity: 0.9;
+    cursor: pointer;
+  }
+  
+  /* 테이블 비율 */
+  th:nth-child(1),
+  td:nth-child(1) {
+    width: 30%;
+  }
+  
+  th:nth-child(2),
+  td:nth-child(2) {
+    width: 30%;
+  }
+  
+  th:nth-child(3),
+  td:nth-child(3) {
+    width: 30%;
+  }
+
+  th:nth-child(4),
+  td:nth-child(4) {
+    width: 30%;
+  }

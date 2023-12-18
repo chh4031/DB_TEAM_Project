@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="main.css" />
   <link rel="stylesheet" href="../main.css" />
+  <link rel="stylesheet" href="myparter.css" />
+  <link rel="stylesheet" href="../mypartner.css" />
   <title>메인페이지</title>
 </head>
 <body>
@@ -35,17 +37,46 @@
         <% } %>
       </div>
     </header>
-
-    <div class="banner">
-      <img src="main_img1.png" alt="logo" class="image2">
-      <img src="main_img2.png" alt="logo" class="image2">
+    <%for(let i = 0; i < myPartnerList.length; i++) { %>
+    <div class="info">
+        <p>기본정보</p>
+        <hr>
+        <div class="photo">
+            사진없음 공간
+            <div>
+                삭제 공간
+            </div>
+        </div>
+        <span class="sp">제휴매장이름</span><input type="text" value="<%=myPartnerList[i].제휴매장이름 %>" disabled/><br>
+        <span class="sp">주소</span><input type="text" value="<%=myPartnerList[i].제휴매장주소 %>" disabled/><br>
+        <span class="sp">담당자</span><input type="text" value="<%=myPartnerList[i].제휴매장담당자 %>" disabled/><br>
+        <span class="sp">연속1등급횟수</span><input type="text" value="<%=myPartnerList[i].연속1등급횟수 %>" disabled/><br>
+        <span class="sp">전화번호</span><input type="text" value="<%=myPartnerList[i].제휴매장전화번호 %>" disabled/><br>
+        <span class="sp">총계약일수</span><input type="text" value="<%=myPartnerList[i].총계약일수 %>" disabled/><br>
+        <span class="sp">특별승급대상여부</span><span><%=special[i] %></span>
+        <hr><br>
+        <p>현재분기에 대한 정보</p>
+        <div class="info_table">
+            <table>
+                <head>
+                    <th>현재분기</th>
+                    <th>누적 총 금액</th>
+                    <th>예상금액</th>
+                    <th>1등급까지필요금액</th>
+                    <th>1등급시받을금액</th>
+                </head>
+                <tbody>
+                    <td><%=mypartnerList.분기_분기번호 %></td>
+                    <td><%=mypartnerList.분기별총수익 %></td>
+                    <td><%=money%></td>
+                    <td><%=5000000 - mypartnerList.분기별총수익 %></td>
+                    <td><%=goodMoney%></td>
+                </tbody>
+            </table>
+        </div>
     </div>
-
-    <!-- <div class="newbox">
-      <p>박스</p>
-    </div> -->
-
-    <span class="goto" onclick="location.href='/partnersignup'"><span>제휴매장 요청하러 가기</span></span>
+    <% } %>
+    
 
   </div>
     <div class="bottom">

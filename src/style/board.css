@@ -38,3 +38,31 @@
     padding-left: 10px;
     padding-right: 10px;
 }
+
+@font-face {
+    font-family: 'JalnanGothic';
+    src: url(JalnanGothicTTF.ttf) ;
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Jalnan2';
+    src: url(Jalnan2TTF.ttf) ;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.board {
+    font-family: 'JalnanGothic';
+}
+
+.selectbox {
+    margin-top: 1rem;
+    margin-left: 25%;
+    margin-right: 25%;
+    border-radius: 2px;
+    border-color: transparent;
+    font-family: 'JalnanGothic';
+}

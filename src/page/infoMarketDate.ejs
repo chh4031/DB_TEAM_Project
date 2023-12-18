@@ -4,41 +4,91 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="admin.css" />
     <link rel="stylesheet" href="../admin.css" />
-    <title>제휴 매장 정보 상세</title>
+    <title>제휴 매장 분기 정보</title>
 </head>
 <body>
-    <h1>제휴 매장 정보 상세</h1>
-    <hr>
-    <div class="up_bar">
-        <span>제휴 매장 이름 : </span>
+    <h1>제휴 매장 분기 정보</h1>
+    <hr />
+    <div class="detail_bar">
+        <span>제휴매장이름 : <%=marketInfo[0].제휴매장이름 %></span>
     </div>
-    <br>
-    <br>
-    <br>
-    <span>기본 정보</span>
-    <table>
+    <br />
+    <br />
+    <br />
+    <div class="Market_info">
+      <span class="normal_info">기본 정보</span>
+    </div>
+    <table class="DateDetail">
         <thaed>
             <tr>
-                <th>사업자번호</th>
-                <th>제휴매장이름</th>
-                <th>계약활성여부</th>
-                <th>제휴매장요청유무</th>
-                <th>정보상세보기</th>
-                <th>분기정보확인</th>
+                <th>분기</th>
+                <th>누적 총 금액</th>
+                <th>등급</th>
+                <th>하락방지적용등급</th>
+                <th>지급률(%)</th>
+                <th>지급금액</th>
+                <th>관리자등급혜택<br>부여여부</th>
+                <th>협의내용<br>(4등급해당)</th>
             </tr>
         </thaed>
         <tbody>
-            <% for(let i = 0; i < selectMarket.length; i++) { %>
-            <tr>
-                <td><%=selectMarket[i].사업자번호 %></td>
-                <td><%=selectMarket[i].제휴매장이름 %></td>
-                <td><%=selectMarket[i].제휴매장계약활성 %></td>
-                <td><%=selectMarket[i].제휴매장요청유무 %></td>
-                <td><button onclick="location.href='/admin/mangePartner/infoDetail'">상세보기</button></td>
-                <td><button onclick="location.href='/admin/mangePartner/infoDate'">상세보기</button></td>
-            </tr>
-            <% } %>
+            <% let num = marketInfo.length - 1 %>
+            <% for(let i = 0; i < marketInfo.length-1; i++) { %>
+                <tr>
+                    <td><%=marketInfo[i].분기_분기번호 %></td>
+                    <td><%=marketInfo[i].분기별총수익 %></td>
+                    <td><%=marketInfo[i].분기별등급 %></td>
+                    <td><%=marketInfo[i].분기별등급_하락방지적용 %></td>
+                    <td><%=marketInfo[i].분기별등급지급률 %></td>
+                    <td><%=marketInfo[i].분기별지급액 %></td>
+                    <td><%=marketInfo[i].관리자부여등급혜택여부 %></td>
+                    <td><%=marketInfo[i].협의내용 %></td>
+                </tr>
+                <% } %>
         </tbody>
     </table>
-</body>
+        <div class="Market_infoo">
+            <span class="normal_info">최근 분기 기록</span>
+        </div>
+        
+        <form action="/admin/mangePartner/updateDate" method="POST">
+        <table class="DateDetail">
+            <tbody>
+                <hr>
+                    <td><%=marketInfo[num].분기_분기번호 %></td>
+                    <input type="text" value="<%=marketInfo[num].분기별등급식별번호 %>" name="dateNum" hidden/>
+                    <td><%=marketInfo[num].분기별총수익 %></td>
+                    <input type="text" value="<%=marketInfo[num].분기별총수익 %>" name="totalMoney" hidden/>
+                    <td><%=marketInfo[num].분기별등급 %></td>
+                    <td><%=marketInfo[num].분기별등급_하락방지적용 %></td>
+                    <td>
+                        <input style="text-align: center; width: 40px;"
+                        type="text"
+                        value="<%=marketInfo[num].분기별등급지급률 %>"
+                        name="giveP"
+                      />
+                    </td>
+                    <td><%=marketInfo[num].분기별지급액 %></td>
+                    <td><%=marketInfo[num].관리자부여등급혜택여부 %></td>
+                    <td><%=marketInfo[num].협의내용 %></td>
+                    <input type="text" value="<%=marketInfo[num].제휴매장_사업자번호 %>" name="marketNumber" hidden/>
+            </tbody>
+        </table>
+        <button style="margin-top: 15px;" class="brown_button">저장</button>
+        </form>
+
+        <form action="/admin/mangePartner/sendMessage" method="POST">
+            <div class="Market_infoo">
+                <span class="normal_info">메시지 보내기</span>
+                <a href="/admin/mangePartner/messageDetail?marketNum=<%=marketInfo[num].제휴매장_사업자번호%>&marketDate=<%=marketInfo[num].분기별등급식별번호 %>">메시지 기록 조회</a>
+            </div>
+
+            <input type="text" value="<%=marketInfo[num].분기별등급식별번호 %>" name="dateNum" hidden/>
+            <input type="text" value="<%=marketInfo[num].제휴매장_사업자번호 %>" name="marketNumber" hidden/>
+
+            <input class="message" type="text" name="message"/>
+            <button style="margin-top: 15px;" class="brown_button">전송</button>
+        </form>
+
+  </body>
 </html>

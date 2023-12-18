@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="../main.css" />
+  <link rel="stylesheet" href="orderlist.css" />
+  <link rel="stylesheet" href="../orderlist.css" />
+  <title>메인페이지</title>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+        <img src="../logo.png" alt="logo" class="image1">
+        <span class="logo_frist" onclick="location.href='/'">PS</span>
+        <span class="logo_second" onclick="location.href='/'">COFFEE SHOP</span>
+      <div class="middle_bar">
+        <span class="bar">회사소개</span>
+        <span class="bar" onclick="location.href='/menu'">메뉴</span>
+        <span class="bar">매장</span>
+        <span class="bar" onclick="location.href='/partnerboardlist'">게시판</span>
+        <span class="bar" onclick="location.href='/partnerlist'">제휴매장</span>
+      </div>
+      <div class="right_bar">
+        <% if(loginId == undefined) { %>
+          <span class="barR" onclick="location.href='/logi'">로그인</span>
+          <span>|</span>
+          <span class="barR" onclick="location.href='/signup'">회원가입</span>
+        <% } else if(loginId != "admin") { %>
+            <span class="barR" onclick="location.href='/logout'">로그아웃</span>
+            <span>|</span>
+            <span class="barR" onclick="location.href='/mypage'">마이페이지</span>
+          <% }else{  %>
+            <span class="barR" onclick="location.href='/logout'">로그아웃</span>
+            <span>|</span>
+            <span class="barR" onclick="location.href='/admin'">관리자 화면</span>
+        <% } %>
+      </div>
+    </header>
+    <body>
+    <h1>주문 내역</h1>
+    <a href="/">홈으로 돌아가기</a>
+    <hr>
+    <% if (orderList.length > 0) { %>
+      <% orderList.forEach(order => { %>
+          <div class = "orderboard">
+            <div class = "orderlist">
+              <div class = "orderlistitem">
+                <p>주문 일시: <%= new Date(order.주문날짜).toLocaleDateString() %></p>
+                <p>주문 방식: <%= order.주문방식 %></p>
+                <p>할인가격 : <%= order.원본총금액 / 100 *(100-order.할인률) %>원</p>
+              </div>
+              <div class = "orderlistitem"> 
+                <p>총 가격: <%= order.원본총금액 %>원</p>
+                <p>할인률: <%= order.할인률 %>원</p>
+              </div>
+            </div>
+              <h3 class = "orderlistitem">주문된 메뉴</h3>
+              <% if (order.주문내역.length > 0) { %>
+                  <ul>
+                      <% order.주문내역.forEach(menu => { %>
+                          <li>
+                              <%= menu.메뉴총수량 %>개 <%= menu.메뉴이름 %> - <%= menu.메뉴총금액 %>원
+                          </li>
+                      <% }); %>
+                  </ul>
+              <% } else { %>
+                  <p>주문된 메뉴가 없습니다.</p>
+              <% } %>
+          </div>
+      <% }); %>
+  <% } else { %>
+      <p>주문 내역이 없습니다.</p>
+  <% } %>
+  </body>
+  </div>
+</div>
+<div class="bottom">
+  <footer>
+    <span class="logo_frist_bottom">PS</span>
+    <span class="logo_second_bottom">COFFEE SHOP</span>
+    <div class="bottom_middle">
+      <span>법인명 : 주식회사 데이터베이스설계101  |  대표 : 조대수  |  주소 : 부산광역시 사상구 주례로 47 </span><br>
+      <span>법인 사업자등록번호 : 2019-15-98 |  대표전화 : 1577-1577  |  이메일 : 20191598@g.dongseo.ac.kr </span><br><br>
+      <span class="bottom_middle_content">COPYRIGHT ⓒ 2023 PS coffee Shop CHH All rights reserved.</span>
+    </div>
+    <span class="bottom_right">개인정보처리방침 | 이용약관</span>
+  </footer>
+</div>
+</body>
+</html>

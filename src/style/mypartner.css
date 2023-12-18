@@ -1,0 +1,29 @@
+.info {
+    text-align: center;
+}
+
+.sp{
+    display: block;
+    margin-top: 10px;
+}
+
+.photo{
+    border: 1px solid #000000;
+}
+
+.info_table{
+    border: 1px solid #000000;
+}
+
+.info_table th{
+    border: 1px solid #000000;
+}
+
+.info_table td{
+    border: 1px solid #000000;
+}
+
+.info_table table{
+    margin: auto;
+    width: 50%
+}

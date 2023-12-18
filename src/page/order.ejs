@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="../main.css" />
+  <link rel="stylesheet" href="order.css" />
+  <link rel="stylesheet" href="../order.css" />
+  <title>메인페이지</title>
+</head>
+<body>
+  <div class="wrapper">
+        <header>
+            <img src="logo.png" alt="logo" class="image1">
+            <span class="logo_frist" onclick="location.href='/'">PS</span>
+            <span class="logo_second" onclick="location.href='/'">COFFEE SHOP</span>
+            <div class="middle_bar">
+                <span class="bar">회사소개</span>
+                <span class="bar" onclick="location.href='/menu'">메뉴</span>
+                <span class="bar">매장</span>
+                <span class="bar" onclick="location.href='/partnerboardlist'">게시판</span>
+                <span class="bar" onclick="location.href='/partnerlist'">제휴매장</span>
+            </div>
+            <div class="right_bar">
+                <% if(loginId == undefined) { %>
+                <span class="barR" onclick="location.href='/logi'">로그인</span>
+                <span>|</span>
+                <span class="barR" onclick="location.href='/signup'">회원가입</span>
+                <% } else if(loginId != "admin") { %>
+                    <span class="barR" onclick="location.href='/logout'">로그아웃</span>
+                <% }else{  %>
+                    <span class="barR" onclick="location.href='/logout'">로그아웃</span>
+                    <span>|</span>
+                    <span class="barR" onclick="location.href='/admin'">관리자 화면</span>
+                <% } %>
+            </div>
+        </header>
+        <h1>결제 하기</h1>
+        <form action="/order" method="post">
+            <p style="margin-bottom: 10px;"">장바구니 메뉴</p>
+            <ul style="list-style: none; margin-bottom: 10px;">
+            <% for (const cartItem of cartItems) { %>
+                <li><%= cartItem.메뉴이름 %> <%= cartItem.장바구니총수량 %>개 <%= cartItem.장바구니총금액 %>원</li>
+            <% } %>
+            </ul>
+            <hr style="margin-bottom: 10px; ">
+            <p>결제수단 선택: <input type="radio" value="카드" name="pay">카드 <input type="radio" value="현금" name="pay">현금</p>
+            <hr style="margin-bottom: 10px; margin-top: 10px;">
+            <select id="discountType" name="type">
+                <option>선택</option>
+                <option value="store_discount">제휴매장 할인</option>
+                <option value="point_discount">포인트</option>
+            </select>
+            <input type="hidden" value="null" name="isCheck" id="isCheck">
+            
+            <p id="input_store_number">
+                제휴매장 사업자 번호 입력: <input type="text" name="partnerno" id="partnerno"> <br>
+                <span id="check_duplicate">중복체크</span>
+            </p>
+            <p id="input_point">
+                사용 포인트: <input type="text" name="usepoint" id="usepoint" value="0"><br>
+                <span id="check_point">포인트사용</span><br>
+                포인트 사용시 제휴매장 할인을 할 수 없습니다.<br>
+                보유 포인트: <%= userpoint %>
+            </p>
+            <p style="margin-bottom: 10px; ">총 금액: <span id="total_price"><%= totalPrice %></span>원</p>
+            <p style="margin-bottom: 10px; ">예상 포인트 적립</p>
+            <ul class = "pointgradelist">
+                <li>브론즈 : <%= totalPrice * 0 %> 포인트</li>
+                <li>실버 : <%= totalPrice * 0.03 %> 포인트</li>
+                <li>골드 : <%= totalPrice * 0.05 %> 포인트</li>
+            </ul>
+            <p class = "caution">*포인트 사용시 포인트 적립이 되지 않습니다.*</ㅔ>
+            <button type="submit">구매하기</button>
+        </form>
+    </div>
+</div>
+<div class="bottom">
+  <footer>
+    <span class="logo_frist_bottom">PS</span>
+    <span class="logo_second_bottom">COFFEE SHOP</span>
+    <div class="bottom_middle">
+      <span>법인명 : 주식회사 데이터베이스설계101  |  대표 : 조대수  |  주소 : 부산광역시 사상구 주례로 47 </span><br>
+      <span>법인 사업자등록번호 : 2019-15-98 |  대표전화 : 1577-1577  |  이메일 : 20191598@g.dongseo.ac.kr </span><br><br>
+      <span class="bottom_middle_content">COPYRIGHT ⓒ 2023 PS coffee Shop CHH All rights reserved.</span>
+    </div>
+    <span class="bottom_right">개인정보처리방침 | 이용약관</span>
+  </footer>
+</div>
+
+<script>
+    const discountType = document.getElementById('discountType');
+const input_store_number = document.getElementById('input_store_number');
+const partnerno = document.getElementById('partnerno');
+const check_duplicate = document.getElementById('check_duplicate');
+const usepoint = document.getElementById('usepoint');
+const input_point = document.getElementById('input_point');
+const check_point = document.getElementById('check_point');
+const isCheck = document.getElementById('isCheck');
+
+// flags
+let isCheckDuplicate = false;
+let isUsePoint = false;
+
+window.onload = () => {
+    input_store_number.style.display = 'none';
+    input_point.style.display = 'none';
+};
+
+discountType.addEventListener('change', e => {
+    const selectedOption = discountType.value;
+
+    if (selectedOption === 'store_discount') {
+        partnerno.value = '';
+        input_store_number.style.display = 'block';
+        input_point.style.display = 'none';
+    } else if (selectedOption === 'point_discount') {
+        usepoint.value = '0';
+        input_store_number.style.display = 'none';
+        input_point.style.display = 'block';
+    }
+});
+
+check_duplicate.addEventListener('click', e => {
+    console.log(isCheckDuplicate);
+    if (isCheckDuplicate) return;
+
+    fetch(`http://localhost:3000/check?partnerno=${partnerno.value}`, { mode: 'cors' })
+        .then(response => response.json())
+        .then(data => {
+            if (data.isCheck > 0) {
+                total_price.innerText = parseInt(total_price.innerText) * 0.95;
+                isCheckDuplicate = true;
+                isCheck.value = data.isCheck
+            }
+        })
+        .catch(error => console.error('Fetch 오류: ', error));
+});
+
+check_point.addEventListener('click', e => {
+    if (isUsePoint) return;
+
+    if (parseInt(usepoint.value) > 0) {
+        total_price.innerText = parseInt(total_price.innerText) - parseInt(usepoint.value);
+        isUsePoint = true;
+    }
+});
+
+</script>
+</body>
+</html>

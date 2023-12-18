@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="admin.css" />
+    <link rel="stylesheet" href="../admin.css" />
+    <title>메뉴 통계 조회</title>
+</head>
+<body>
+    <h1>메뉴 통계 조회</h1>
+    <hr />
+    <div class="up_bar">
+        <span>메뉴 이름 검색</span>
+        <form action="/admin/menuInfo/search" method="POST">
+            <input type="text" name="search"/>
+            <button type="submit">검색</button>
+        </form>
+        <form action="/admin/menuInfo/order" method="POST">
+            <span>정렬 기준</span>
+            <select name="search_order">
+                <option value="메뉴이름">메뉴이름</option>
+                <option value="총판매갯수">총판매갯수</option>
+                <option value="총수익">총수익</option>
+            </select>
+            <button type="submit">적용</button>
+        </form>
+    </div>
+    <br>
+    <br>
+    <table class="DateDetail">
+        <thaed>
+            <tr>
+                <th>분기별기록</th>
+                <th>메뉴항목번호</th>
+                <th>등록날짜</th>
+                <th>메뉴이름</th>
+                <th>메뉴가격</th>
+                <th>특별메뉴</th>
+                <th>총판매갯수</th>
+                <th>총수익</th>
+                <th>작업</th>
+            </tr>
+        </thaed>
+        <tbody>
+            <%for (let i = 0; i < menuInfo.length; i++) { %>
+            <form action="/admin/menuInfo/select?menuNum=<%=menuInfo[i].메뉴항목번호%>" method="POST">
+            <tr>
+                <td>
+                    <button name="selectBtn" value="0" class="brown_button">선택</button>
+                </td>
+                <td><%=menuInfo[i].메뉴항목번호 %></td>
+                <td><%=DateChange[i] %></td>
+                <td>
+                    <input type="text" name="mName" value="<%=menuInfo[i].메뉴이름 %>"/>
+                </td>
+                <td>
+                    <input type="text" name="menuPrice" value="<%=menuInfo[i].메뉴가격 %>"/>
+                </td>
+                <td>
+                    <input type="text" name="menuGood" value="<%=menuInfo[i].특별메뉴 %>"/>
+                </td>
+                <td><%=menuInfo[i].총판매갯수 %></td>
+                <td><%=totalMoney[i] %></td>
+                <td>
+                    <button name="selectBtn" value="1">수정</button>
+                    <button name="selectBtn" value="2">삭제</button>
+                </td>
+            </tr>
+            </form>
+            <% } %>
+        </tbody>
+    </table>
+
+    <br>
+
+    <% if(showlog != 0) { %>
+    <div class="Market_info">
+        <span class="normal_info">분기별 기록 보기</span>
+        <span class="normal_info">선택한 메뉴 : <%=menuName%></span>
+    </div>
+    <table class="DateDetail">
+        <thead>
+            <th>분기</th>
+            <th>판매갯수</th>
+            <th>분기별판매수익</th>
+        </thead>
+        <tbody>
+            <% for(let i = 0; i < logMoney.length; i++) { %>
+            <tr>
+                <td><%=menulog[i].분기_분기번호 %></td>
+                <td><%=menulog[i].판매횟수 %></td>
+                <td><%=logMoney[i] %></td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <% } %>
+  </body>
+  <br>
+  <br>
+  <br>
+</html>
